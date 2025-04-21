@@ -1,0 +1,4 @@
+sbin: contain system binaries specilly for adminitrator not normal user like user-managment,reboot,shutdown,fdisk,mkfs,ifconfig
+bin : system binaries for both root and user like cp mv ls cat echo mkdir
+usr : it also contain system binaries which are not essential u have usr/bin ,usr/share:for common storage,usr/src:for storing source code
+srv: is for server like webserver related config file we store here
