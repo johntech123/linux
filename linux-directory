@@ -2,3 +2,67 @@ sbin: contain system binaries specilly for adminitrator not normal user like use
 bin : system binaries for both root and user like cp mv ls cat echo mkdir
 usr : it also contain system binaries which are not essential u have usr/bin ,usr/share:for common storage,usr/src:for storing source code
 srv: is for server like webserver related config file we store here
+
+
+process managment 
+process is a running instance of your program like java application ,python or even a shell command is runs as process under the hood
+
+ps -ef or ps aux                 view running process
+ps aux | wc -l                   check number of process running     wc: word count -l   its L
+diffrence between ps -f and ps aux 
+ps -ef shows running process where ps aux show running process alonside the cpu & memory utilisation
+top          check running process
+htop         same only diffrence it give better vuisualisation colourful output nothing diffrent
+top vs ps aux : top gives real time data it changes
+
+kill pid
+kill -9 pid
+kill -STOP pid      to temporary stop the process
+kill -CONT pid      to resume the process
+
+renice:
+renice is a command used to change the priority (or niceness) of a running process. It adjusts the "nice" value of a process, which influences how much CPU time it gets compared to other processes.
+
+🧠 What is "nice"?
+The nice value is a number from -20 (highest priority) to 19 (lowest priority).
+
+Default is usually 0.
+
+Lower nice value = higher priority (gets more CPU time).
+
+Higher nice value = lower priority (gets CPU time less aggressively).
+-20 is lowest nice value = high cpu time
+19 is highest nice value = less cpu time
+
+renice -n 10 -p <pid>      -n number -p process id    less cpu time less priority
+renice -n -7 -p <pid>       more priority more cpu time
+
+service processs: which starts at the time of boot when your server goes down   like apache,nginx
+systemctl list-units --type=service              This shows all active services.
+systemctl list-units --type=service --all        List ALL services (active, inactive, enabled, disabled, etc.)
+systemctl list-unit-files --type=service         systemctl list-unit-files --type=service
+
+Type | Started by
+Systemd service | Started and managed by systemd | Systemd starts services automatically at boot, or on demand | systemctl (start, stop, enable, etc.) | by defoult runs in background
+Regular process | Started manually (e.g., via terminal or script) | Regular processes usually need a user to launch them | 	Commands like ps, kill, nice, top, etc | manually run background
+
+systemd services:
+Service name | What it does
+ssh.service | Manages the SSH server
+cron.service | Manages scheduled tasks
+nginx.service | Manages the Nginx web server
+networking.service | Manages network interfaces
+mysql.service | Runs the MySQL database server
+
+vmstat              to check the current state of linux server memory usage cpu usage overall system :   u know if someone ask about system low performance or slow
+vmstat [delay] [count]
+vmstat 2 5    in each 2 sec need update and 5 times
+
+
+
+
+
+
+
+
+
