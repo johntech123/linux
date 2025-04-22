@@ -59,6 +59,15 @@ vmstat [delay] [count]
 vmstat 2 5    in each 2 sec need update and 5 times
 
 
+STORAGE:
+ebs is block storage for your application to use this hard disk block storage we need file system thats ext4 or more which format the block storage 
+
+first you check the current block devices along with partition
+lsblk 
+fdisk -l    both use for block devices or to check partition but fdisk give more detail about u know file system or partition
+
+
+
 
 
 
