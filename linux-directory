@@ -65,6 +65,8 @@ ebs is block storage for your application to use this hard disk block storage we
 first you check the current block devices along with partition
 lsblk 
 fdisk -l    both use for block devices or to check partition but fdisk give more detailed info about partition (partision table)
+df -T       to check file system
+blkid       glabally unique partition or device id (bcz device name may cahnged once reboot)
 
 now attach ebs volume to your instance 
 then do lsblk you will see newly attached block device or volume
