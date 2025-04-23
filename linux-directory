@@ -79,6 +79,20 @@ mount <block device> <mount path>      this will mount the filesystem  mount /de
 df -h                       to check diskspace overall
 du -ah                      for perticular directory
 
+PARTITION:
+partition is a way to logically devide your disk in multiple part and you can asssign this partotion to diffrent directory,it encapsulate data means if something wrong with 1
+partition it wont affect other partition.
+
+parted /dev/xvda          to partition
+its interactive
+mklabel gpt
+mkpart primary ext4 1MiB 5GiB    1ST partition from 1 mb to 5gb
+mkpart primary ext4 5GiB 15GiB   2ND partition
+quite    exit
+sudo mkfs ext4 /dev/xvda1
+sudo mkfs ext4 /dev/xvda2   thats it.
+
+
 
 
 
