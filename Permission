@@ -1,0 +1,6 @@
+Umask (only remove permission not add)
+create file touch hello
+check permission defoult permission ls -ltr
+umask     to check the defoult permission
+umask -S   more readeble format
+do ls -ltr cehck defoult permission caluculate it whether its anythingh and minus it with umask value
