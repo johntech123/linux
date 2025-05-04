@@ -117,6 +117,14 @@ to have you job running even if terminal closed you have to use nohup
 nohup <process> &    nohup ./helo.sh &  
 
 
+what is zombie process
+zombie process is a dead process which completed it execution but still has entry in process table,doesnt use cpu memory but uses pid
+
+top | grep z   or ps -ef | grep z            to list the zombie process
+
+pstree <pid>       to check the process including child process
+
+
 
 
 
