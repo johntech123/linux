@@ -44,6 +44,7 @@ top                         to check nice value of process in ni column
 
 service processs: which starts at the time of boot when your server goes down   like apache,nginx
 systemctl list-units --type=service              This shows all active services.
+systemctl | grep -i running                       ye bhi use karskte running svc dekhne k liye
 systemctl list-units --type=service --all        List ALL services (active, inactive, enabled, disabled, etc.)
 systemctl list-unit-files --type=service         systemctl list-unit-files --type=service
 
@@ -62,6 +63,17 @@ mysql.service | Runs the MySQL database server
 vmstat              to check the current state of linux server memory usage cpu usage overall system :   u know if someone ask about system low performance or slow
 vmstat [delay] [count]
 vmstat 2 5    in each 2 sec need update and 5 times
+
+#systemd uses systemctl to check the state of the service
+systemctl status <service>      
+systemctl start/stop/restart <service>
+systemctl enable nginx        enable ka matlb ye nai ki service start hojayengi apko start bhi karna honga
+systemctl enable --now nginx  it will enable and start both (shortcut for above)
+systemctl is-enabled nginx    to check whether service is enabled or not
+systemctl disbale nginx       it will not start the service during boot but a person can manually start it
+systemctl mask nginx           to prevent service to start  (when you dont want to start it manually)
+unmask                        to remove mask
+
 
 Jobs:
  job generally refers to a process or group of processes that are started and managed from a shell (like bash), typically in the foreground or background of your terminal session.
@@ -100,7 +112,10 @@ sleep 10 &      this & sysmbol will run this job in background
 q: even if you run job in fg or bg if terminal goes off it will terminate the job 
 to have you job running even if terminal closed you have to use nohup
 
-nohup <process> &    nohup ./helo.sh &      
+nohup <process> &    nohup ./helo.sh &  
+
+
+
 
 
 
