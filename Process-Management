@@ -16,9 +16,13 @@ htop         same only diffrence it give better vuisualisation colourful output 
 top vs ps aux : top gives real time data it changes
 
 kill pid
+kill -1  PID        to restart the process                        thses are signals
+kill -2  PID        to intrupt the process like ctl c
 kill -9 pid
-kill -STOP pid      to temporary stop the process
-kill -CONT pid      to resume the process
+kill -STOP pid      to temporary stop the process      (kill -19 means STOP)
+kill -CONT pid      to resume the process              (kill -18 means CONT)
+pkill  <process name>             kill by process name
+killall 
 
 renice:
 renice is a command used to change the priority (or niceness) of a running process. It adjusts the "nice" value of a process, which influences how much CPU time it gets compared to other processes.
@@ -98,11 +102,6 @@ to have you job running even if terminal closed you have to use nohup
 
 nohup <process> &    nohup ./helo.sh &      
 
-kill PID         to kill process
-kill -1  PID     to restart the process                        thses are signals
-kill -2  PID     to intrupt the process like ctl c
-kill -9  PID    forcefully kill
-kill -15 PID     gracefully kill
 
 
 
