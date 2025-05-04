@@ -36,6 +36,7 @@ Higher nice value = lower priority (gets CPU time less aggressively).
 
 renice -n 10 -p <pid>      -n number -p process id    less cpu time less priority
 renice -n -7 -p <pid>       more priority more cpu time
+top                         to check nice value of process in ni column
 
 service processs: which starts at the time of boot when your server goes down   like apache,nginx
 systemctl list-units --type=service              This shows all active services.
@@ -74,6 +75,41 @@ Copy
 Edit
 ./long_script.sh &
 This lets you continue using the terminal.
+
+jobs               it will show active jobs
+bg                 to run job in background
+fg                 forground
+ example:
+root# ./hello.sh       run this script which give output in a loop saying hi (ab apan terminal to use nai karskta q ki is job ne terminal ne occupy kardiya is liye isko bg me chalao)
+ctl z     to stop it 
+then bg         it will run in background now
+
+Q:how to resume specific job with job id in fg or bg
+jobs               it will list the jobs including id 
+to resume job in fg 
+fg %<id>        fg %2     it will resume job
+bg %<id>
+
+how do you run job in background withour ctl z 
+sleep 10 &      this & sysmbol will run this job in background
+
+q: even if you run job in fg or bg if terminal goes off it will terminate the job 
+to have you job running even if terminal closed you have to use nohup
+
+nohup <process> &    nohup ./helo.sh &      
+
+kill PID         to kill process
+kill -1  PID     to restart the process                        thses are signals
+kill -2  PID     to intrupt the process like ctl c
+kill -9  PID    forcefully kill
+kill -15 PID     gracefully kill
+
+
+
+
+
+
+
 
 
 
