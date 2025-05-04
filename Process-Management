@@ -48,6 +48,8 @@ systemctl | grep -i running                       ye bhi use karskte running svc
 systemctl list-units --type=service --all        List ALL services (active, inactive, enabled, disabled, etc.)
 systemctl list-unit-files --type=service         systemctl list-unit-files --type=service
 
+journalctl -u nginx                it is use for checking logs of systemd-services
+
 Type | Started by
 Systemd service | Started and managed by systemd | Systemd starts services automatically at boot, or on demand | systemctl (start, stop, enable, etc.) | by defoult runs in background
 Regular process | Started manually (e.g., via terminal or script) | Regular processes usually need a user to launch them | 	Commands like ps, kill, nice, top, etc | manually run background
