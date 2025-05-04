@@ -75,38 +75,7 @@ Edit
 ./long_script.sh &
 This lets you continue using the terminal.
 
-STORAGE:
-ebs is block storage for your application to use this hard disk block storage we need file system thats ext4 or more which format the block storage 
 
-first you check the current block devices along with partition
-lsblk 
-fdisk -l    both use for block devices or to check partition but fdisk give more detailed info about partition (partision table)
-df -T       to check file system
-blkid       glabally unique partition or device id (bcz device name may cahnged once reboot)
-
-now attach ebs volume to your instance 
-then do lsblk you will see newly attached block device or volume
-then we have to format the block storage with mkfs
-
-mkfs -t <block device>    this format the block device mkfs -t /dev/xvdf
-then mount it
-mount <block device> <mount path>      this will mount the filesystem  mount /dev/xvdf /mnt/demo-volume
-
-df -h                       to check diskspace overall
-du -ah                      for perticular directory
-
-PARTITION:
-partition is a way to logically devide your disk in multiple part and you can asssign this partotion to diffrent directory,it encapsulate data means if something wrong with 1
-partition it wont affect other partition.
-
-parted /dev/xvda          to partition
-its interactive
-mklabel gpt
-mkpart primary ext4 1MiB 5GiB    1ST partition from 1 mb to 5gb
-mkpart primary ext4 5GiB 15GiB   2ND partition
-quite    exit
-sudo mkfs ext4 /dev/xvda1
-sudo mkfs ext4 /dev/xvda2   thats it.
 
 
 
