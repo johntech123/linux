@@ -58,6 +58,22 @@ vmstat              to check the current state of linux server memory usage cpu 
 vmstat [delay] [count]
 vmstat 2 5    in each 2 sec need update and 5 times
 
+Jobs:
+ job generally refers to a process or group of processes that are started and managed from a shell (like bash), typically in the foreground or background of your terminal session.
+example : 
+1. Foreground Job
+A job you start normally (e.g., ./script.sh) runs in the foreground.
+
+It occupies your terminal until it finishes.
+
+2. Background Job
+Run a command in the background by appending &:
+
+bash
+Copy
+Edit
+./long_script.sh &
+This lets you continue using the terminal.
 
 STORAGE:
 ebs is block storage for your application to use this hard disk block storage we need file system thats ext4 or more which format the block storage 
