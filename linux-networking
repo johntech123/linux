@@ -1,1 +1,29 @@
+netstat:
+its a command which shows
+-network connection of tcp & udp
+-routing tables
+-network protocols statistics
+-no. of networks interface
+
+ss -tulnp or netstat -tulnp to check on which port service or app listening 
+ss -tulnp | grep nginx        more precisely
+
+ss -tulnp | grep :8080       to check which process/svc/app using this port
+
+
+Traceroute:
+as name suggest it tracks the rount of packets like how data travel on internet between your source and destination
+
+traceroute google.com
+tracerout ip
+
+nslookup:
+this command we use to check the domain specific like domain and ip mapping it will resolve the domain to check the ip or vise versa
+
+nslookup 192.13.2.0          >    output will be             hello.com
+vise versa
+hello.com                    >    output would be            192.13.2.0
+
+
+
 
