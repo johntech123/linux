@@ -4,14 +4,18 @@ ebs is block storage for your application to use this hard disk block storage we
 first you check the current block devices along with partition
 lsblk 
 fdisk -l    both use for block devices or to check partition but fdisk give more detailed info about partition (partision table)
-df -T       to check file system
+df -T       to check file system  | YOU can check where does partition mounted
 blkid       glabally unique partition or device id (bcz device name may cahnged once reboot)
+ubuntu@ip-172-31-11-228:~$ blkid | grep xvda16
+/dev/xvda16: LABEL="BOOT" UUID="2aeda221-cde7-4cff-aa4c-e3f564d1e144" BLOCK_SIZE="4096" TYPE="ext4" PARTUUID="60f2ed2c-e176-41ad-a5a7-3d7841fcf30e"
+UUID IS A GLABALLY UNIQUE ID
+
 
 now attach ebs volume to your instance 
 then do lsblk you will see newly attached block device or volume
 then we have to format the block storage with mkfs
 
-mkfs -t <block device>    this format the block device mkfs -t /dev/xvdf
+mkfs -t <block device>    this format the block device mkfs -t /dev/xvdf     agar direct block device ko bagair partition kare use karna hai to ye karo (partition me nai karna)
 then mount it
 mount <block device> <mount path>      this will mount the filesystem  mount /dev/xvdf /mnt/demo-volume
 
@@ -30,5 +34,24 @@ mkpart primary ext4 5GiB 15GiB   2ND partition
 quite    exit
 sudo mkfs ext4 /dev/xvda1
 sudo mkfs ext4 /dev/xvda2   thats it.
+
+now mount it 
+mkdir /var/log/new-log           new log will be new directory created
+mkdir /mnt/new-mount             new-mount will be created
+
+sudo mount /dev/xvda1 /var/log/new-log
+sudo mount /dev/xvda2 /mnt/new-mount
+
+to ensure thses mount automatically mount during boot we have to modify /etc/fstab  file bcz till now we have mounted it temprory if system reboot your mount will disapper to
+automatically mount this during boot you need to provide this in fstab which besically read this file at the time of boot.
+first find UUID
+sudo blkid /dev/xvdbx1
+sudo blkid /dev/xvdbx2
+Then,
+sudo vi /etc/fstab
+UUID=xxxx-xxxx-xxxx-xxxx  /var/log/new-log  ext4  defaults  0  2     add this line thats it    replace uuid
+
+
+
 
 
