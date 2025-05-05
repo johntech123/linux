@@ -1,3 +1,12 @@
+Ping:
+The ping command is a basic network utility used to test the connectivity between your local machine (or server) and a remote machine or server.
+It works by sending ICMP (Internet Control Message Protocol) Echo Request packets to the destination and waiting for an Echo Reply.
+This helps determine if a machine is reachable over the network.
+
+Ping ip    or ping <hostname>
+
+
+
 netstat:
 its a command which shows
 -network connection of tcp & udp
@@ -23,6 +32,14 @@ this command we use to check the domain specific like domain and ip mapping it w
 nslookup 192.13.2.0          >    output will be             hello.com
 vise versa
 hello.com                    >    output would be            192.13.2.0
+
+nc :
+
+nc -zv your-db-name.region.rds.amazonaws.com 5432      Example for PostgreSQL (port 5432)        -z: zero-I/O mode (just checks if the port is open)
+
+nc -zv your-db-name.region.rds.amazonaws.com 3306      for mysql (port 3306)
+
+
 
 
 
