@@ -1,0 +1,6 @@
+awk NR==400 <filename>            ye 400 wali line print karenga
+sed -n 400p filename              same
+shift colon :88 enter             in vi it will show 88 line
+/content                          it will show specified content
+gg   just gg                      it will go to top of the list
+G                                 bottom
