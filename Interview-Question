@@ -11,3 +11,11 @@ tail -f filename        tail -f /var/lib/jenkins/logs      it will show live log
 inode is a data structure in linux which stores metadata about a file not the file content
 ls -i filename      to check inode of a file
 
+4) Diffrence between relative path and absolute path
+
+absolute path starts from root or relative path starts from current dir
+
+)diffrence between kill & pkill
+kill 123     kill nginx
+kill works with pid            where pkill we use to to kill the process by name  pkill nginx
+
