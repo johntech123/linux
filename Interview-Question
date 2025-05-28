@@ -15,7 +15,27 @@ ls -i filename      to check inode of a file
 
 absolute path starts from root or relative path starts from current dir
 
-)diffrence between kill & pkill
+5)diffrence between kill & pkill
 kill 123     kill nginx
 kill works with pid            where pkill we use to to kill the process by name  pkill nginx
+
+6) how do you check a logs for a service any service eg nginx
+
+journalctl -u <service-name>      # e.g., journalctl -u nginx
+
+7) how to check System info: kernel, OS, architecture, hostname.
+
+uname -a
+
+8) 🔹 How to find a file by name?
+
+find / -name "filename"
+
+9) 🔹 View last 100 lines of a log:
+
+tail -n 100 /var/log/syslog
+
+
+
+
 
