@@ -1,0 +1,13 @@
+1) How do you check whether command or script executed successfully
+
+echo $?
+
+2) how do check live events or logs within the file
+
+tail -f filename        tail -f /var/lib/jenkins/logs      it will show live logs
+
+3) what is inode
+
+inode is a data structure in linux which stores metadata about a file not the file content
+ls -i filename      to check inode of a file
+
