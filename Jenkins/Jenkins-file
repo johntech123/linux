@@ -1,1 +1,37 @@
+@Library ('my-shared-library') _
+pipeline{
+  agent{label 'worker-node'}
+ tools{
+  maven 'maven 3.6.3'
+  jdk 'openjdk 17'
+ }
+  envronment{
+    SONAR_URL = XYZ
+  }
 
+  stages{
+    stage(Checkout){
+      steps{
+
+      }
+    } 
+    stage(build){
+      steps{
+        sh 'mvn clean install'
+          'mvn deploy'
+      }
+    }
+    stage(Static Code Analysis){
+      steps{
+        sh 'mvn sonar:sonar -Dsonar.projectkey=my-project-key -Dsonar.host.url=$SONAR_URL -Dsonar.login=xyz '
+          
+      }
+    } 
+      stage(Docker Image){
+      steps{
+        sh 'docker build -t demo .'
+          'mvn deploy'
+      }
+    }  
+  }
+} 
